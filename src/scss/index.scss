@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900|Nunito:400,700,800,900|Roboto:400,700,900');
+
+* {
+    box-sizing:border-box;
+    font-family:Nunito;
+}
+
+html, body {
+    min-height:100%;
+}
+
+body {
+    background: linear-gradient(to bottom left, #e8edf3, #c5cfe1);
+}
+
+header {
+    
+    padding:15px;
+    
+    #new-widget {
+        background: white;
+        border: 0;
+        outline: none;
+        padding: 10px 13px;
+        box-shadow: 0px 0px 10px 0px #a6b3c5;
+        line-height: 1em;
+        cursor:pointer;
+        font-weight: bold;
+        
+        &:hover {
+            background-color: #f4f4f4;
+        }
+    }
+}
+
+#noteSection {
+    display:flex;
+    align-items:flex-start;
+    justify-content:flex-start; 
+    padding:15px;
+}
+
+.notePanel {
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    background:white;
+    border-radius:3px;
+    box-shadow:0px 0px 10px 0px #b7c2d1;
+    position:relative;
+    flex-grow: 1;
+    flex-basis:0;
+    min-width: 0;
+        max-width:200px;
+    transition:opacity 0.2s ease-out, max-width 0.2s ease-out;
+    
+    &.widgetTransition-enter {
+        opacity:0;
+        max-width:0px;
+    }
+    
+    &.widgetTransition-enter-active {
+        opacity:1;
+        max-width:200px;
+        
+        
+    }
+    
+    &.widgetTransition-exit-active {
+        opacity:0;
+        max-width:0px;
+    }
+    
+    &:not(:last-child) {
+        margin-right:30px;
+    }
+    
+    &::after{
+        content: '';
+        position:absolute;
+        z-index:-1;
+        bottom:-3px;
+        width:74%;
+        left:50%;
+        margin-left:-37%;
+        height:30px;
+        box-shadow:-1px -3px 70px 0px #687b9b;
+        transform: perspective(800px) rotateY(0deg) rotateX(45deg);
+    }
+    
+    .Select-control {
+        background: white;
+        outline:none;
+        z-index:1;
+        border-width: 0px 0px 1px 0px !important; 
+        border-style: solid !important;
+        border-color: #f2f2f2 !important;
+        box-shadow: none !important;
+        font-size:14px;
+        font-weight:bold;
+        width:100%;
+        cursor:pointer;
+        
+        &:active, &:hover {
+            background:#f4f4f4;
+        }
+        
+        .Select-value {
+            line-height:38px !important;
+        }
+        
+    }
+    
+        .Select-option {
+            font-size: 12px;
+            padding: 5px 10px;
+        }
+    
+    ul {
+        list-style-type:none;
+        margin:0;
+        padding:0;
+        overflow-y:auto;
+        
+        li {
+            word-wrap: break-word;
+            cursor:pointer;
+            font-size: 12px;
+            padding:0.8em 10px;
+            transition:background 0.2s ease-out;
+            
+            &:hover {
+                background:#f4f4f4;
+                transition:background 0s ease;
+            }
+        }
+    }
+    
+    &:hover .deleteWidgetButton {
+        transform:translateX(-2px);   
+        box-shadow: 0px 0px 10px 0px #b7c2d1;  
+        transition:transform 0.3s ease, box-shadow 0.5s ease-out;   
+    }
+//    
+//    .Select:hover + ul + .deleteWidgetButton {
+//        background-color:#f4f4f4;
+//    }
+    
+    .deleteWidgetButton {
+        position: absolute;
+        background-color:white;
+        background-image:url(images/x.png);
+        background-size:10px 10px;
+        background-repeat:no-repeat;
+        background-position:center center;
+        border-radius: 0px 3px 3px 0px;
+        box-shadow: 0px 0px 0px 0px transparent;
+        left: 100%;
+        width: 22px;
+        height: 35.6px;
+        cursor:pointer;
+        transform:translateX(-35px);
+        transition:transform 0.3s ease, box-shadow 0.1s ease;
+        z-index:0;
+        cursor:pointer;
+        
+        &:hover {
+            background-color: #f4f4f4;
+        }
+    }
+     
+} 
+
+.notePanel.tiles {
+    background:transparent;
+    box-shadow:none;
+    
+    li {
+        position:relative;
+        font-family:Roboto;
+        background: white;
+        margin: 10px;
+        height: 130px;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 20px;
+        line-height: 1em;
+        box-shadow:0px 0px 10px 0px #b7c2d1;
+        
+        &::after {
+            content: '';
+            position:absolute;
+            z-index:-1;
+            bottom:-3px;
+            width:74%;
+            left:50%;
+            margin-left:-37%;
+            height:30px;
+            box-shadow: -1px -10px 30px 6px #687b9b;
+            transform: perspective(800px) rotateY(0deg) rotateX(45deg);
+        }
+    }
+    
+    &::after {
+        box-shadow:none;
+    }
+    
+    .Select-control {
+        background:transparent;
+        border-width: 0px !important;
+    }
+    
+    
+    .deleteWidgetButton {
+        display:none;
+    }
+}
